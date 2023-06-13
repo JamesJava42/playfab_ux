@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { MattableComponent } from './mattable/mattable.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LocationComponent } from './pages/location/location.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+// import { NgModule } from '@angular/compiler/src/core';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { LocationComponent } from './pages/location/location.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

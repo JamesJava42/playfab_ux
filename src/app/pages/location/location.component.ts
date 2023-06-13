@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Route, Router } from '@angular/router';
 import { LocationResponse } from 'src/app/models/locationresponse';
+import { PlayfabService } from 'src/app/services/playfab.service';
 
 @Component({
   selector: 'app-location',
@@ -9,11 +11,26 @@ import { LocationResponse } from 'src/app/models/locationresponse';
 export class LocationComponent implements OnInit {
   long:any=0;
     lat:any=0;
+    constructor(private route: Router,private playfab: PlayfabService){}
+
   ngOnInit(): void {
     
   }
-  LocationComponent(){}
 result?: LocationResponse;
+
+
+getLogOut(){
+ this.route.navigate(['/home']);
+}
+getPlayerName(){
+
+}
+getHistory(){
+   this.playfab.getCallPlayFabHistory().subscribe((result:any) =>{
+        console.log(result);
+   })
+}
+
 
   getLocation(){
    

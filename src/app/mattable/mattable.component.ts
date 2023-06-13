@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatSort, MatTableDataSource} from '@angular/material';
+import { Router } from '@angular/router';
 
 export interface PeriodicElement {
   name: string;
@@ -30,16 +31,41 @@ const ELEMENT_DATA: PeriodicElement[] = [
 
 export class MattableComponent implements OnInit {
     displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+    email:string ="";
+    password:string="";
     
     dataSource = new MatTableDataSource(ELEMENT_DATA);
   
     @ViewChild(MatSort, {static: true}) sort: MatSort;
-  
+  permit: boolean=false;;
+ constructor(private route: Router){}
     ngOnInit() {
       this.dataSource.sort = this.sort;
     }
   // displayedColumns: String[] = ['name','position'];
+displayName(){
+  console.log(this.email);
+  console.log(this.password);
+}
+checkLogin(){
+  if(this.email=="jamesreddy1505@gmail.com" && this.password == "Lpu#4244"){
+   this.permit = true;
+  }
+setTimeout(() => {
+  this.openPage();
+}, 500);
+  
+}
+openPage(){
+  console.log(this.permit);
+if(this.permit ===  true){
+  this.route.navigate(['/main']);
 
+
+}else{
+    this.route.navigate(['/home']);
+}
+}
   
 
 }

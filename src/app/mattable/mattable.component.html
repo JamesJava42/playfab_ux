@@ -1,3 +1,47 @@
 <div class="container">
+    <div class="login">
+        <form>
+            <h1 class="text-align-center">Enter the Cred to Enter</h1>
+            <div class="row">
+                <div class="col col-4 ml-4">
+                    <div class="form-outline mb-4 mt-1">
+                        <input type="email " [(ngModel)]= "email" name="email" id= "email" class="form-control" >
+                        <label class="form-label " for="email">Enter-Email</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-4 ml-4">
+                    <div class="form-outline mb-2 ">
+                        <input type="pass " [(ngModel)]= "password" name="password" id= "pass" class="form-control" >
+                        <label class="form-label " for="pass">Enter-Password</label>
+                    </div>
+                    
+                </div>
+
+            </div>
+
+            <!-- grid for inline styling -->
+            <div class="row ">
+                <div class="col col-2 d-flex justify-content-center">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="checkin" checked>
+                        <label class="form-check-label" for="checkin">Remember me</label>
+                    </div>
+                </div>
+                <div class="col col-2">
+                    <a href="#">Forgotpassword</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-4  mt-2"  style="text-align: center;">
+                    <button type="button" class="btn btn-primary  mb-4" (click)= "checkLogin()" >Sign in</button>
+
+                </div>
+            </div>
+
+            
+        </form>
+    </div>
 
 </div>
