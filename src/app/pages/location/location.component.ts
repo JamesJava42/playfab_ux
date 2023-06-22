@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
+// import { Route, Router } from '@angular/router';
+import { Bodyreq } from 'src/app/models/Bodyreq';
+import { WeatherData } from 'src/app/models/Weatherdata';
 import { LocationResponse } from 'src/app/models/locationresponse';
 import { PlayfabService } from 'src/app/services/playfab.service';
 
@@ -9,14 +12,18 @@ import { PlayfabService } from 'src/app/services/playfab.service';
   styleUrls: ['./location.component.css']
 })
 export class LocationComponent implements OnInit {
-  long:any=0;
-    lat:any=0;
+  
     constructor(private route: Router,private playfab: PlayfabService){}
 
   ngOnInit(): void {
+   
     
   }
 result?: LocationResponse;
+long: number; 
+lat: number;
+tempData: String[] = [];
+weather: String ="";
 
 
 getLogOut(){
@@ -26,8 +33,15 @@ getPlayerName(){
 
 }
 getHistory(){
-   this.playfab.getCallPlayFabHistory().subscribe((result:any) =>{
-        console.log(result);
+   this.playfab.geWeatherData().subscribe((result:WeatherData[]) =>{
+        console.log(" my reuslt " +result);
+        
+        result.forEach((item:any) => {
+          console.log(item);
+          this.tempData.push(item.main.temp);
+        }) 
+        console.log(this.tempData);
+        
    })
 }
 
@@ -46,6 +60,13 @@ getHistory(){
       this.long=this.result.coords.longitude;
       this.lat= this.result.coords.latitude;
       console.log("My long and lat : "+this.lat+ this.long);
+      const bodyreq : Bodyreq={
+        longt:  this.long,
+        lat: this.lat
+      }
+      this.playfab.getCallSaveLocation(bodyreq).subscribe((res: any) => {
+             console.log(res);
+      });
       
     }
     

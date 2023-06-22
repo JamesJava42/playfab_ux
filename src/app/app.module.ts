@@ -8,13 +8,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LocationComponent } from './pages/location/location.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { DisplayhistComponent } from './pages/displayhist/displayhist.component';
 // import { NgModule } from '@angular/compiler/src/core';
 
 @NgModule({
   declarations: [
     AppComponent,
     MattableComponent,
-    LocationComponent
+    LocationComponent,
+    DisplayhistComponent
   ],
   imports: [
     BrowserModule,

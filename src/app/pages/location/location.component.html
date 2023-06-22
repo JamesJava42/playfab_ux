@@ -19,5 +19,50 @@
         </div>
         
     </div>
+    <div class="row display-space mt-2 ">
+
+        <!-- <div class="container">
+            <div class="row">
+                <div class="col ">
+                    
+                      <h4>latitude: {{this.long}} </h4>
+                      <h5>Longitude: {{this.lat}}</h5>
+                </div>
+            </div>
+        </div> -->
+        <div class="col col-4">
+            <div class="card">
+                <div class="card-body location">
+                    <form>
+                        <h3>Location</h3>
+                        <label class="form-label" for="lat">Latitute: </label>
+                        <div class="col col-5">
+                            <input class="form-control" id="value" name="lat" [(ngModel)]="lat" type="text">
+                        </div>
+                        <label class="form-label" for="lat">Longitute: </label>
+                        <div class="col col-5">
+                            <input class="form-control" id="value" name="long" [(ngModel)]="long" type="text">
+                        </div>
+                        
+                        <app-displayhist></app-displayhist>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col col-4">
+            <div class="card">
+                <div class="card-body location">
+                    <form>
+                        <h3>Temp History</h3>
+                        <label class="form-label" for="lat">Temps: </label>
+                        <select>
+                            <option *ngFor="let item of tempData">{{ item }}</option>
+                          </select>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     
 </div>

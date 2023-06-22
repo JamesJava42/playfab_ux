@@ -1,0 +1,9 @@
+.display-space{
+    margin: 4px solid green;
+    height: 500px;
+    width: 90%;
+    background-color: antiquewhite;
+}
+.location{
+    margin-left: 25%;
+}
